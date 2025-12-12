@@ -73,7 +73,6 @@ class ShopfloorSchemaDetailAction(Component):
         schema.update(
             {
                 "removal_date": {"type": "string", "nullable": True, "required": False},
-                "expire_date": {"type": "string", "nullable": True, "required": False},
                 "product": self._schema_dict_of(self.product_detail()),
                 # TODO: packaging
             }
