@@ -1,0 +1,2 @@
+- François Poizat \<<francois.poizat@akretion.com>\>
+- Benoît Guillot \<<benoit.guillot@akretion.com>\>

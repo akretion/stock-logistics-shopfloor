@@ -175,7 +175,7 @@ class ShopfloorInventory(Component):
 
     def _start_location_state(self, inventory, location):
         location_state = inventory.sub_location_ids.filtered(
-            lambda l: l.location_id == location
+            lambda line: line.location_id == location
         )
         if not location_state:
             raise ShopfloorError(
@@ -224,7 +224,7 @@ class ShopfloorInventory(Component):
         current_line = self.env["stock.inventory.line"].browse(line_id)
         search = self._actions_for("search")
         product = search.product_from_scan(barcode)
-        lot = self.env["stock.production.lot"]
+        lot = self.env["stock.lot"]
         if not product:
             packaging = search.packaging_from_scan(barcode)
             product = packaging.product_id
@@ -352,7 +352,7 @@ class ShopfloorInventory(Component):
         self, inventory, location, other_location=None, confirmation=False
     ):
         lines = self._find_inventory_line(inventory, location, create=False, multi=True)
-        if lines.filtered(lambda l: l.product_qty == 0) and not confirmation:
+        if lines.filtered(lambda line: line.product_qty == 0) and not confirmation:
             return self._response_for_scan_product(
                 inventory,
                 location,
@@ -360,7 +360,7 @@ class ShopfloorInventory(Component):
                 message=self.msg_store.location_not_done(),
             )
         location_state = inventory.sub_location_ids.filtered(
-            lambda l: l.location_id == location
+            lambda line: line.location_id == location
         )
         if not location_state:
             raise ShopfloorError(
@@ -404,7 +404,7 @@ class ShopfloorInventory(Component):
         if not inventory.exists():
             return self._response_inventory_does_not_exist()
         location_state = inventory.sub_location_ids.filtered(
-            lambda l: l.state != "done"
+            lambda line: line.state != "done"
         )
         if location_state:
             return self._response_for_start_location(

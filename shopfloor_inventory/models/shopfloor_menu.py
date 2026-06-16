@@ -88,8 +88,8 @@ class ShopfloorMenu(models.Model):
             ):
                 raise exceptions.ValidationError(
                     _(
-                        "Hidding location content is not allowed if inventory quantities are "
-                        "not reset to zero for menu {}."
+                        "Hidding location content is not allowed if inventory "
+                        "quantities are not reset to zero for menu {}."
                     ).format(menu.name)
                 )
 

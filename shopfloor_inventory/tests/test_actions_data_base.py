@@ -7,6 +7,7 @@ from odoo.addons.shopfloor.tests.test_actions_data_base import ActionsDataCaseBa
 class InventoryActionsDataCaseBase(ActionsDataCaseBase):
     @classmethod
     def setUpClassBaseData(cls):
+        # pylint: disable=missing-return
         super().setUpClassBaseData()
         cls.inventory = (
             cls.env["stock.inventory"]

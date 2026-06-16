@@ -3,18 +3,21 @@
 
 {
     "name": "Shopfloor Inventory",
-    "summary": "manage stock inventories with barcode scanners",
-    "version": "14.0.1.0.0",
+    "summary": "Manage stock inventories with barcode scanners",
+    "version": "18.0.1.0.0",
     "development_status": "Beta",
     "category": "Inventory",
     "website": "https://github.com/OCA/stock-logistics-shopfloor",
-    "author": "Camptocamp, BCIM, Akretion, Odoo Community Association (OCA)",
-    "maintainers": ["guewen", "simahawk", "sebalix"],
+    "author": "Akretion, Odoo Community Association (OCA)",
+    "maintainers": ["FranzPoize", "bguillot"],
     "license": "AGPL-3",
     "application": False,
     "depends": [
+        # OCA/stock-logistics-shopfloor
         "shopfloor",
-        "stock_inventory_user",
+        # OCA/stock-logistics-warehouse
+        "stock_inventory",
+        "stock_inventory_restriction",
         "stock_inventory_location_state",
     ],
     "data": [

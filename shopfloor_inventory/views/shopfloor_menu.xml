@@ -7,14 +7,14 @@
             <group name="multiple_move_single_pack" position="after">
                 <group
                     name="use_existing_inventory"
-                    attrs="{'invisible': [('use_existing_inventory_is_possible', '=', False)]}"
+                    invisible="not use_existing_inventory_is_possible"
                 >
                     <field name="use_existing_inventory_is_possible" invisible="1" />
                     <field name="use_existing_inventory" />
                 </group>
                 <group
                     name="inventory_zero_counted_quantity"
-                    attrs="{'invisible': [('inventory_zero_counted_quantity_is_possible', '=', False)]}"
+                    invisible="not inventory_zero_counted_quantity_is_possible"
                 >
                     <field
                         name="inventory_zero_counted_quantity_is_possible"
@@ -24,7 +24,7 @@
                 </group>
                 <group
                     name="force_inventory_add_product"
-                    attrs="{'invisible': [('force_inventory_add_product_is_possible', '=', False)]}"
+                    invisible="not force_inventory_add_product_is_possible"
                 >
                     <field
                         name="force_inventory_add_product_is_possible"
@@ -34,14 +34,14 @@
                 </group>
                 <group
                     name="display_location_content"
-                    attrs="{'invisible': [('display_location_content_is_possible', '=', False)]}"
+                    invisible="not display_location_content_is_possible"
                 >
                     <field name="display_location_content_is_possible" invisible="1" />
                     <field name="display_location_content" />
                 </group>
                 <group
                     name="ignore_location_ongoing_operation"
-                    attrs="{'invisible': [('ignore_location_ongoing_operation_is_possible', '=', False)]}"
+                    invisible="not ignore_location_ongoing_operation_is_possible"
                 >
                     <field
                         name="ignore_location_ongoing_operation_is_possible"
@@ -51,7 +51,7 @@
                 </group>
                 <group
                     name="filtered_warehouse_ids"
-                    attrs="{'invisible': [('filtered_warehouse_ids_is_possible', '=', False)]}"
+                    invisible="not filtered_warehouse_ids_is_possible"
                 >
                     <field name="filtered_warehouse_ids_is_possible" invisible="1" />
                     <field

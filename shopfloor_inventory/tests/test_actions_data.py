@@ -50,7 +50,7 @@ class InventoryActionsDataCase(ActionsDataCase, InventoryActionsDataCaseBase):
         package = self.env["stock.quant.package"].create(
             {"packaging_id": self.packaging.id}
         )
-        lot = self.env["stock.production.lot"].create(
+        lot = self.env["stock.lot"].create(
             {
                 "product_id": product.id,
                 "company_id": self.env.company.id,
@@ -61,7 +61,7 @@ class InventoryActionsDataCase(ActionsDataCase, InventoryActionsDataCaseBase):
         )
         self.inventory.action_start()
         line = self.inventory.line_ids.filtered(
-            lambda l: l.product_id == product and l.location_id == location
+            lambda line: line.product_id == product and line.location_id == location
         )
         data = self.data.inventory_line(line)
         expected = {
