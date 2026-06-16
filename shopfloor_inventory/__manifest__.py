@@ -7,7 +7,7 @@
     "version": "14.0.1.0.0",
     "development_status": "Beta",
     "category": "Inventory",
-    "website": "https://github.com/OCA/wms",
+    "website": "https://github.com/OCA/stock-logistics-shopfloor",
     "author": "Camptocamp, BCIM, Akretion, Odoo Community Association (OCA)",
     "maintainers": ["guewen", "simahawk", "sebalix"],
     "license": "AGPL-3",
