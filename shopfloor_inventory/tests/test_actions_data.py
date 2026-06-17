@@ -9,7 +9,7 @@ from .test_actions_data_base import InventoryActionsDataCaseBase
 
 class InventoryActionsDataCase(ActionsDataCase, InventoryActionsDataCaseBase):
     def test_data_inventory(self):
-        self.inventory.action_start()
+        self.inventory.action_state_to_in_progress()
         data = self.data.inventory(self.inventory)
         expected = self._expected_inventory(self.inventory)
         self.assertEqual(
@@ -19,7 +19,7 @@ class InventoryActionsDataCase(ActionsDataCase, InventoryActionsDataCaseBase):
         self.assertDictEqual(data, expected)
 
     def test_data_inventory_with_location(self):
-        self.inventory.action_start()
+        self.inventory.action_state_to_in_progress()
         data = self.data.inventory(self.inventory, with_locations=True)
         expected = self._expected_inventory(self.inventory)
         expected.update(
@@ -40,7 +40,7 @@ class InventoryActionsDataCase(ActionsDataCase, InventoryActionsDataCaseBase):
             .create(
                 {
                     "name": "Test",
-                    "type": "product",
+                    "is_storable": True,
                     "barcode": "test_inventory",
                     "default_code": "test_inventory",
                 }
@@ -59,7 +59,7 @@ class InventoryActionsDataCase(ActionsDataCase, InventoryActionsDataCaseBase):
         self.env["stock.quant"]._update_available_quantity(
             product, location, qty, lot_id=lot, package_id=package
         )
-        self.inventory.action_start()
+        self.inventory.action_state_to_in_progress()
         line = self.inventory.line_ids.filtered(
             lambda line: line.product_id == product and line.location_id == location
         )

@@ -15,7 +15,6 @@ class InventoryActionsDataCaseBase(ActionsDataCaseBase):
             .create(
                 {
                     "location_ids": [(6, 0, cls.stock_location.ids)],
-                    "prefill_counted_quantity": "zero",
                 }
             )
         )
@@ -26,6 +25,6 @@ class InventoryActionsDataCaseBase(ActionsDataCaseBase):
             "name": record.name,
             "location_count": record.location_count,
             "remaining_location_count": record.remaining_location_count,
-            "inventory_line_count": record.inventory_line_count,
+            "count_stock_quants": record.count_stock_quants,
         }
         return data

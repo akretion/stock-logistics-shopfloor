@@ -19,7 +19,7 @@ class ShopfloorSchemaAction(Component):
             "date": {"required": True, "type": "string"},
             "location_count": {"required": True, "type": "integer"},
             "remaining_location_count": {"required": True, "type": "integer"},
-            "inventory_line_count": {"required": True, "type": "integer"},
+            "count_stock_quants": {"required": True, "type": "integer"},
         }
         if with_locations:
             schema["locations"] = self._schema_list_of(self.inventory_location())

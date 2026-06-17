@@ -39,7 +39,7 @@ class DataAction(Component):
             "date",
             "location_count",
             "remaining_location_count",
-            "inventory_line_count",
+            "count_stock_quants",
         ]
 
     @ensure_model("stock.inventory.line")
